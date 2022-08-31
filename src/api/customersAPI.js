@@ -1,5 +1,6 @@
 /* eslint-disable no-console */
 import axios from 'axios';
+import errorMessages from '../helpers/errorMessages';
 
 class CustomersAPI {
   constructor(baseURL, timeout) {
@@ -17,9 +18,7 @@ class CustomersAPI {
     } catch (error) {
       const { response: { status } } = error;
 
-      if (status === 500) {
-        return 'Erro interno no servidor';
-      }
+      return errorMessages[status];
     }
   }
 
@@ -31,9 +30,7 @@ class CustomersAPI {
     } catch (error) {
       const { response: { status } } = error;
 
-      if (status === 404) {
-        return 'Cliente não encontrado!';
-      }
+      return errorMessages[status];
     }
   }
 
@@ -45,9 +42,7 @@ class CustomersAPI {
     } catch (error) {
       const { response: { status } } = error;
 
-      if (status === 400) {
-        return 'Valores inválidos!';
-      }
+      return errorMessages[status];
     }
   }
 
@@ -59,13 +54,7 @@ class CustomersAPI {
     } catch (error) {
       const { response: { status } } = error;
 
-      if (status === 400) {
-        return 'Valores inválidos';
-      }
-
-      if (status === 404) {
-        return 'Cliente não encontrado!';
-      }
+      return errorMessages[status];
     }
   }
 
@@ -77,9 +66,7 @@ class CustomersAPI {
     } catch (error) {
       const { response: { status } } = error;
 
-      if (status === 404) {
-        return 'Cliente não encontrado!';
-      }
+      return errorMessages[status];
     }
   }
 }
