@@ -15,7 +15,11 @@ class CustomersAPI {
 
       return customers;
     } catch (error) {
-      console.log('Error ao pegar todos os clientes');
+      const { response: { status } } = error;
+
+      if (status === 500) {
+        return 'Erro interno no servidor';
+      }
     }
   }
 
@@ -43,6 +47,24 @@ class CustomersAPI {
 
       if (status === 400) {
         return 'Valores inválidos';
+      }
+    }
+  }
+
+  async updateCustomerById(id, newValues) {
+    try {
+      await this.api.put(`/customers/${id}`, newValues);
+
+      return 'Cadastro atualizado com sucesso!';
+    } catch (error) {
+      const { response: { status } } = error;
+
+      if (status === 400) {
+        return 'Valores inválidos';
+      }
+
+      if (status === 404) {
+        return 'Client não encontrado';
       }
     }
   }
