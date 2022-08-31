@@ -32,7 +32,7 @@ class CustomersAPI {
       const { response: { status } } = error;
 
       if (status === 404) {
-        return 'Cliente não encontrado.';
+        return 'Cliente não encontrado!';
       }
     }
   }
@@ -46,7 +46,7 @@ class CustomersAPI {
       const { response: { status } } = error;
 
       if (status === 400) {
-        return 'Valores inválidos';
+        return 'Valores inválidos!';
       }
     }
   }
@@ -64,7 +64,21 @@ class CustomersAPI {
       }
 
       if (status === 404) {
-        return 'Client não encontrado';
+        return 'Cliente não encontrado!';
+      }
+    }
+  }
+
+  async deleteCustomerById(id) {
+    try {
+      await this.api.delete(`/customers/${id}`);
+
+      return 'Cliente deletado com sucesso!';
+    } catch (error) {
+      const { response: { status } } = error;
+
+      if (status === 404) {
+        return 'Cliente não encontrado!';
       }
     }
   }
