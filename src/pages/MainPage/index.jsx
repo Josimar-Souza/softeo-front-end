@@ -1,8 +1,13 @@
 import React from 'react';
+import Header from '../../components/Header';
 
 function MainPage() {
   return (
-    <h1>Main Page</h1>
+    <section>
+      <Header
+        pageTitle="Clientes"
+      />
+    </section>
   );
 }
 
