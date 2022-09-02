@@ -11,7 +11,7 @@ const HeaderStyle = styled.div`
 `;
 
 const PageTitle = styled.h1`
-  color: #696773;
+  color: black;
   font-size: 3vw;
 `;
 
