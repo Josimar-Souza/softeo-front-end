@@ -5,9 +5,9 @@ import styles from './customerRowStyles';
 import getCurrencyFormat from '../../helpers/getCurrencyFormat';
 import Button from '../Button';
 
-function CustomerRow({ customer }) {
+function CustomerRow({ customer, config }) {
   const navigate = useNavigate();
-
+  const { setRemoveModal } = config;
   const getInstallmentsTotal = (installments) => {
     const total = installments.reduce((acc, curr) => acc + curr.value, 0);
     const formattedTotal = getCurrencyFormat(total, 'pt-BR', 'currency', 'BRL');
@@ -30,6 +30,7 @@ function CustomerRow({ customer }) {
     fontColor: 'white',
     fontSize: '1.2vw',
     width: '47%',
+    onClick: () => setRemoveModal({ visible: true, customer }),
   };
 
   const detailsButtonConfig = {
@@ -71,6 +72,9 @@ CustomerRow.propTypes = {
     phone: PropTypes.string.isRequired,
     installments: PropTypes.arrayOf(PropTypes.shape({})),
     _id: PropTypes.string.isRequired,
+  }).isRequired,
+  config: PropTypes.shape({
+    setRemoveModal: PropTypes.func.isRequired,
   }).isRequired,
 };
 

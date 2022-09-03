@@ -3,12 +3,14 @@ import CustomersAPI from '../../api/customersAPI';
 import mainPageStyles from './mainPageStyles';
 import Header from '../../components/Header';
 import CustomerRow from '../../components/CustomerRow';
+import RemoveModal from '../../components/RemoveModal';
 
 const { REACT_APP_API_URL } = process.env;
 const customersAPI = new CustomersAPI(REACT_APP_API_URL, 10000);
 
 function MainPage() {
   const [customers, setCustomers] = useState([]);
+  const [removeModal, setRemoveModal] = useState({ visible: false, customer: {} });
 
   useEffect(() => {
     const getCustomers = async () => {
@@ -26,8 +28,27 @@ function MainPage() {
     TableHeaderRow,
     TableHeader,
   } = mainPageStyles;
+
+  const customerRowConfig = {
+    setRemoveModal,
+  };
+
+  const getRemoveModal = () => {
+    if (removeModal.visible) {
+      return (
+        <RemoveModal
+          customer={removeModal.customer}
+          config={customerRowConfig}
+        />
+      );
+    }
+
+    return null;
+  };
+
   return (
     <MainPageSection>
+      { getRemoveModal() }
       <Header
         pageTitle="Clientes"
       />
@@ -41,7 +62,13 @@ function MainPage() {
             <TableHeader>Ações</TableHeader>
           </TableHeaderRow>
           {
-            customers.map((customer) => <CustomerRow key={customer._id} customer={customer} />)
+            customers.map((customer) => (
+              <CustomerRow
+                key={customer._id}
+                customer={customer}
+                config={customerRowConfig}
+              />
+            ))
           }
         </tbody>
       </ClientsTable>
