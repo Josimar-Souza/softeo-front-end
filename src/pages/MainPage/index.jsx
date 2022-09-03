@@ -29,8 +29,13 @@ function MainPage() {
     TableHeader,
   } = mainPageStyles;
 
-  const customerRowConfig = {
+  const refreshPage = () => {
+    window.location.reload();
+  };
+
+  const modalConfig = {
     setRemoveModal,
+    refreshPage,
   };
 
   const getRemoveModal = () => {
@@ -38,7 +43,7 @@ function MainPage() {
       return (
         <RemoveModal
           customer={removeModal.customer}
-          config={customerRowConfig}
+          config={modalConfig}
         />
       );
     }
@@ -66,7 +71,7 @@ function MainPage() {
               <CustomerRow
                 key={customer._id}
                 customer={customer}
-                config={customerRowConfig}
+                config={modalConfig}
               />
             ))
           }

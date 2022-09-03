@@ -66,7 +66,10 @@ class CustomersAPI {
     } catch (error) {
       const { response: { status } } = error;
 
-      return errorMessages[status];
+      return {
+        message: errorMessages[status],
+        status,
+      };
     }
   }
 }

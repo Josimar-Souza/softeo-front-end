@@ -36,11 +36,17 @@ const ButtonContainer = styled.div`
   width: 100%;
 `;
 
+const FeedbackMessage = styled.p`
+  font-size: 1.5vw;
+  color: ${({ fontColor }) => fontColor};
+`;
+
 const styles = {
   FadeBackground,
   ModalContainer,
   ModalTitle,
   ButtonContainer,
+  FeedbackMessage,
 };
 
 export default styles;
