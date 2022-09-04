@@ -18,10 +18,9 @@ const ModalContainer = styled.div`
   border-radius: 15px;
   display: flex;
   flex-direction: column;
-  height: 50vh;
   justify-content: space-around;
   max-width: 100%;
-  padding: 10px;
+  padding: 1.2rem;
   width: 60%;
 `;
 
@@ -33,6 +32,7 @@ const ButtonContainer = styled.div`
   display: flex;
   justify-content: space-between;
   max-width: 100%;
+  margin-top: 20px;
   width: 100%;
 `;
 
