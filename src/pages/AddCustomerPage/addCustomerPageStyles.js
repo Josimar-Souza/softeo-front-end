@@ -12,18 +12,19 @@ const AddCustomerPageSection = styled.section`
 
 const AddCustomerForm = styled.form`
   align-items: center;
-  border: 1px solid red;
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.2);
   display: flex;
   flex-direction: column;
   max-width: 100%;
-  margin-top: 5rem;
+  margin: 5rem 0;
   padding: 15px;
   width: 80%;
 `;
 
 const FormSection = styled.div`
   align-items: center;
-  border: 1px solid blue;
   display: flex;
   flex-direction: column;
   max-width: 100%;

@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './addCustomerPageStyles';
 import Header from '../../components/Header';
 import Input from '../../components/Input';
+import Button from '../../components/Button';
 
 function AddCustomerPage() {
   const {
@@ -10,6 +11,21 @@ function AddCustomerPage() {
     AddCustomerForm,
     FormSectionTitle,
   } = styles;
+
+  const onAddButtonClick = (event) => {
+    event.preventDefault();
+    console.log('Add button clicked');
+  };
+
+  const addButtonConfig = {
+    backgroundColor: 'green',
+    width: '50%',
+    fontColor: 'white',
+    fontSize: '2vw',
+    margin: '3rem 0 0 0',
+    onClick: onAddButtonClick,
+  };
+
   return (
     <AddCustomerPageSection>
       <Header
@@ -17,11 +33,53 @@ function AddCustomerPage() {
       />
       <AddCustomerForm>
         <FormSection>
-          <FormSectionTitle>Nome do Cliente</FormSectionTitle>
+          <FormSectionTitle>Nome</FormSectionTitle>
           <Input
             placeHolder="Escreva o nome do cliente"
+            width="85%"
+            backgroundColor="#D1D1D1"
           />
         </FormSection>
+        <FormSection>
+          <FormSectionTitle>Email</FormSectionTitle>
+          <Input
+            placeHolder="Escreva o email do cliente"
+            width="85%"
+            backgroundColor="#D1D1D1"
+          />
+        </FormSection>
+        <FormSection>
+          <FormSectionTitle>Celular</FormSectionTitle>
+          <Input
+            placeHolder="Escreva o celular do cliente"
+            inputType="number"
+            width="85%"
+            backgroundColor="#D1D1D1"
+          />
+        </FormSection>
+        <FormSection>
+          <FormSectionTitle>Valor das parcelas</FormSectionTitle>
+          <Input
+            placeHolder="Escreva o valor de cada parcela"
+            inputType="number"
+            width="85%"
+            backgroundColor="#D1D1D1"
+          />
+        </FormSection>
+        <FormSection>
+          <FormSectionTitle>Número de parcelas</FormSectionTitle>
+          <Input
+            placeHolder="Escreva o número de parcelas a dividir"
+            inputType="number"
+            width="85%"
+            backgroundColor="#D1D1D1"
+          />
+        </FormSection>
+        <Button
+          config={addButtonConfig}
+        >
+          Adicionar
+        </Button>
       </AddCustomerForm>
     </AddCustomerPageSection>
   );

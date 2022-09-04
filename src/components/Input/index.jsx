@@ -6,6 +6,7 @@ function Input(props) {
   const { InputStyle } = styles;
 
   const {
+    inputType,
     placeHolder,
     width,
     fontSize,
@@ -17,6 +18,7 @@ function Input(props) {
 
   return (
     <InputStyle
+      type={inputType}
       placeholder={placeHolder}
       width={width}
       fontSize={fontSize}
@@ -29,6 +31,7 @@ function Input(props) {
 }
 
 Input.defaultProps = {
+  inputType: 'text',
   placeHolder: '',
   width: '50%',
   fontSize: '1.5vw',
@@ -37,6 +40,7 @@ Input.defaultProps = {
 };
 
 Input.propTypes = {
+  inputType: PropTypes.string,
   placeHolder: PropTypes.string,
   width: PropTypes.string,
   fontSize: PropTypes.string,
