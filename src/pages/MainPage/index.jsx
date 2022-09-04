@@ -6,6 +6,7 @@ import Header from '../../components/Header';
 import CustomerRow from '../../components/CustomerRow';
 import RemoveModal from '../../components/RemoveModal';
 import Button from '../../components/Button';
+import Loading from '../../components/Loading';
 
 const { REACT_APP_API_URL } = process.env;
 const customersAPI = new CustomersAPI(REACT_APP_API_URL, 10000);
@@ -64,17 +65,14 @@ function MainPage() {
     margin: '5rem 0 2rem 0',
   };
 
-  return (
-    <MainPageSection>
-      { getRemoveModal() }
-      <Header
-        pageTitle="Clientes"
-      />
-      <Button
-        config={addCustomerButtonConfig}
-      >
-        Adicionar cliente
-      </Button>
+  const getTable = () => {
+    if (customers.length === 0) {
+      return (
+        <Loading />
+      );
+    }
+
+    return (
       <ClientsTable>
         <tbody>
           <TableHeaderRow>
@@ -95,6 +93,23 @@ function MainPage() {
           }
         </tbody>
       </ClientsTable>
+    );
+  };
+
+  return (
+    <MainPageSection>
+      { getRemoveModal() }
+      <Header
+        pageTitle="Clientes"
+      />
+      <Button
+        config={addCustomerButtonConfig}
+      >
+        Adicionar cliente
+      </Button>
+      {
+        getTable()
+      }
     </MainPageSection>
   );
 }
