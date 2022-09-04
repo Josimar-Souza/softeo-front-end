@@ -14,6 +14,7 @@ function Input(props) {
     value,
     backgroundColor,
     fontColor,
+    name,
   } = props;
 
   return (
@@ -26,6 +27,7 @@ function Input(props) {
       value={value}
       backgroundColor={backgroundColor}
       fontColor={fontColor}
+      name={name}
     />
   );
 }
@@ -37,6 +39,7 @@ Input.defaultProps = {
   fontSize: '1.5vw',
   backgroundColor: 'white',
   fontColor: 'black',
+  name: '',
 };
 
 Input.propTypes = {
@@ -48,6 +51,7 @@ Input.propTypes = {
   value: PropTypes.string.isRequired,
   backgroundColor: PropTypes.string,
   fontColor: PropTypes.string,
+  name: PropTypes.string,
 };
 
 export default Input;

@@ -38,6 +38,7 @@ function AddCustomerPage() {
             placeHolder="Escreva o nome do cliente"
             width="85%"
             backgroundColor="#D1D1D1"
+            name="name"
           />
         </FormSection>
         <FormSection>
@@ -46,6 +47,7 @@ function AddCustomerPage() {
             placeHolder="Escreva o email do cliente"
             width="85%"
             backgroundColor="#D1D1D1"
+            name="email"
           />
         </FormSection>
         <FormSection>
@@ -55,6 +57,7 @@ function AddCustomerPage() {
             inputType="number"
             width="85%"
             backgroundColor="#D1D1D1"
+            name="phone"
           />
         </FormSection>
         <FormSection>
@@ -64,6 +67,7 @@ function AddCustomerPage() {
             inputType="number"
             width="85%"
             backgroundColor="#D1D1D1"
+            name="installmentsValue"
           />
         </FormSection>
         <FormSection>
@@ -73,6 +77,7 @@ function AddCustomerPage() {
             inputType="number"
             width="85%"
             backgroundColor="#D1D1D1"
+            name="installmentsCount"
           />
         </FormSection>
         <Button
