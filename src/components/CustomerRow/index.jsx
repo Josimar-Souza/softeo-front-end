@@ -4,10 +4,12 @@ import PropTypes from 'prop-types';
 import styles from './customerRowStyles';
 import getCurrencyFormat from '../../helpers/getCurrencyFormat';
 import Button from '../Button';
+import phoneNumberFormatter from '../../helpers/phoneNumberFormatter';
 
 function CustomerRow({ customer, config }) {
   const navigate = useNavigate();
   const { setRemoveModal } = config;
+
   const getInstallmentsTotal = (installments) => {
     const total = installments.reduce((acc, curr) => acc + curr.value, 0);
     const formattedTotal = getCurrencyFormat(total, 'pt-BR', 'currency', 'BRL');
@@ -45,7 +47,7 @@ function CustomerRow({ customer, config }) {
     <CustomerRowStyle>
       <CustomerCell>{customer.name}</CustomerCell>
       <CustomerCell>{customer.email}</CustomerCell>
-      <CustomerCell>{customer.phone}</CustomerCell>
+      <CustomerCell>{phoneNumberFormatter(customer.phone)}</CustomerCell>
       <CustomerCell>{getInstallmentsTotal(customer.installments)}</CustomerCell>
       <CustomerCell>
         <CustomerActions>
