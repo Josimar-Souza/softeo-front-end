@@ -7,6 +7,7 @@ function App() {
   return (
     <Routes>
       <Route exact path="/" element={<pages.MainPage />} />
+      <Route exact path="/add-customer" element={<pages.AddCustomerPage />} />
     </Routes>
   );
 }
