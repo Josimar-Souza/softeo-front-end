@@ -6,12 +6,12 @@ const HeaderStyle = styled.div`
   display: flex;
   justify-content: space-around;
   max-width: 100%;
-  padding: 10px;
+  padding: 20px;
   width: 100%;
 `;
 
 const PageTitle = styled.h1`
-  color: black;
+  color: #607196;
   font-size: 3vw;
 `;
 

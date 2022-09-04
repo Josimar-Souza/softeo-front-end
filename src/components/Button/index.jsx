@@ -16,6 +16,7 @@ function Button(props) {
     backgroundColor,
     width,
     onClick,
+    margin,
   } = config;
 
   return (
@@ -25,6 +26,7 @@ function Button(props) {
       backgroundColor={backgroundColor}
       width={width}
       onClick={onClick}
+      margin={margin}
     >
       { children }
     </ButtonStyle>
@@ -37,6 +39,7 @@ Button.defaultProps = {
     fontColor: 'black',
     backgroundColor: 'lightgray',
     width: '50%',
+    margin: '0',
   },
 };
 
@@ -48,6 +51,7 @@ Button.propTypes = {
     backgroundColor: PropTypes.string,
     width: PropTypes.string,
     onClick: PropTypes.func.isRequired,
+    margin: PropTypes.string,
   }),
 };
 

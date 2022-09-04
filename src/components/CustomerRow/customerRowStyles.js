@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const CustomerRowStyle = styled.tr`
-  border-bottom: 1px solid #fc9f5b;
+  border-bottom: 1px solid black;
 `;
 
 const CustomerCell = styled.td`

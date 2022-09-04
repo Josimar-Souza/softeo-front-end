@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import CustomersAPI from '../../api/customersAPI';
 import mainPageStyles from './mainPageStyles';
 import Header from '../../components/Header';
 import CustomerRow from '../../components/CustomerRow';
 import RemoveModal from '../../components/RemoveModal';
+import Button from '../../components/Button';
 
 const { REACT_APP_API_URL } = process.env;
 const customersAPI = new CustomersAPI(REACT_APP_API_URL, 10000);
@@ -11,6 +13,7 @@ const customersAPI = new CustomersAPI(REACT_APP_API_URL, 10000);
 function MainPage() {
   const [customers, setCustomers] = useState([]);
   const [removeModal, setRemoveModal] = useState({ visible: false, customer: {} });
+  const navigate = useNavigate();
 
   useEffect(() => {
     const getCustomers = async () => {
@@ -51,12 +54,27 @@ function MainPage() {
     return null;
   };
 
+  const onAddCustomerClick = () => {
+    navigate('/add-customer');
+  };
+
+  const addCustomerButtonConfig = {
+    onClick: onAddCustomerClick,
+    fontSize: '1.5vw',
+    margin: '5rem 0 2rem 0',
+  };
+
   return (
     <MainPageSection>
       { getRemoveModal() }
       <Header
         pageTitle="Clientes"
       />
+      <Button
+        config={addCustomerButtonConfig}
+      >
+        Adicionar cliente
+      </Button>
       <ClientsTable>
         <tbody>
           <TableHeaderRow>

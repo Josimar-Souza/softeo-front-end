@@ -2,21 +2,25 @@ import styled from 'styled-components';
 
 const MainPageSection = styled.section`
   align-items: center;
+  background-color: #d1d1d1;
   display: flex;
   flex-direction: column;
   max-width: 100%;
+  min-height: 100vh;
   width: 100%;
 `;
 
 const ClientsTable = styled.table`
   border-collapse: collapse;
-  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
   max-width: 100%;
+  margin: 0 auto;
   width: 80%;
 `;
 
 const TableHeaderRow = styled.tr`
-  border-bottom: 1px solid #fc9f5b;
+  border-bottom: 1px solid black;
 `;
 
 const TableHeader = styled.th`

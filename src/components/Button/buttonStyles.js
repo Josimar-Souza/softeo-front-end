@@ -8,6 +8,7 @@ const ButtonStyle = styled.button`
   font-size: ${({ fontSize }) => fontSize};
   font-weight: 700;
   max-width: 100%;
+  margin: ${({ margin }) => margin};
   padding: 10px;
   transition: 0.1s;
   width: ${({ width }) => width};
