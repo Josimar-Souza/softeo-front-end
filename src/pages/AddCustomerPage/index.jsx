@@ -3,6 +3,10 @@ import styles from './addCustomerPageStyles';
 import Header from '../../components/Header';
 import Input from '../../components/Input';
 import Button from '../../components/Button';
+import CustomersAPI from '../../api/customersAPI';
+
+const { REACT_APP_API_URL } = process.env;
+const customersAPI = new CustomersAPI(REACT_APP_API_URL, 10000);
 
 function AddCustomerPage() {
   const [newCustomer, setNewCustomer] = useState(
@@ -22,9 +26,81 @@ function AddCustomerPage() {
     FormSectionTitle,
   } = styles;
 
-  const onAddButtonClick = (event) => {
+  const getBusinessDay = (day) => {
+    if (day === 0) {
+      return 16;
+    }
+
+    if (day === 6) {
+      return 17;
+    }
+
+    return 15;
+  };
+
+  const getInstallments = () => {
+    const currentDate = new Date();
+    let month = currentDate.getMonth();
+    let year = currentDate.getFullYear();
+
+    if (month === 11) {
+      month = 0;
+    } else {
+      month += 1;
+    }
+
+    const installments = [];
+
+    for (let index = 0; index < newCustomer.installmentsCount; index += 1) {
+      month += 1;
+
+      if (month > 12) {
+        month = 1;
+        year += 1;
+      }
+
+      let nextMonth = '';
+
+      if (month.toString().length === 1) {
+        nextMonth = `0${month}`;
+      } else {
+        nextMonth = month;
+      }
+
+      const installmentDate = new Date(`${year}-${nextMonth}-15T00:00:00`);
+      const day = getBusinessDay(installmentDate.getDay());
+      const finalDate = `${day}-${nextMonth}-${year}`;
+
+      const installment = {
+        date: finalDate,
+        value: Number(newCustomer.installmentsValue),
+      };
+
+      installments.push(installment);
+    }
+
+    return installments;
+  };
+
+  const onAddButtonClick = async (event) => {
     event.preventDefault();
-    console.log('Add button clicked');
+
+    const {
+      name,
+      email,
+      phone,
+    } = newCustomer;
+
+    const customer = {
+      name,
+      email,
+      phone,
+      installments: getInstallments(),
+    };
+
+    const result = await customersAPI.createNewCustomer(customer);
+
+    console.log(result);
   };
 
   const onInputChange = ({ target: { name, value } }) => {
