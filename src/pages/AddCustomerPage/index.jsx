@@ -1,10 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './addCustomerPageStyles';
 import Header from '../../components/Header';
 import Input from '../../components/Input';
 import Button from '../../components/Button';
 
 function AddCustomerPage() {
+  const [newCustomer, setNewCustomer] = useState(
+    {
+      name: '',
+      email: '',
+      phone: '',
+      installmentsValue: 0,
+      installmentsCount: 0,
+    },
+  );
+
   const {
     AddCustomerPageSection,
     FormSection,
@@ -15,6 +25,13 @@ function AddCustomerPage() {
   const onAddButtonClick = (event) => {
     event.preventDefault();
     console.log('Add button clicked');
+  };
+
+  const onInputChange = ({ target: { name, value } }) => {
+    setNewCustomer({
+      ...newCustomer,
+      [name]: value,
+    });
   };
 
   const addButtonConfig = {
@@ -39,6 +56,8 @@ function AddCustomerPage() {
             width="85%"
             backgroundColor="#D1D1D1"
             name="name"
+            onChange={onInputChange}
+            value={newCustomer.name}
           />
         </FormSection>
         <FormSection>
@@ -48,6 +67,8 @@ function AddCustomerPage() {
             width="85%"
             backgroundColor="#D1D1D1"
             name="email"
+            onChange={onInputChange}
+            value={newCustomer.email}
           />
         </FormSection>
         <FormSection>
@@ -58,6 +79,8 @@ function AddCustomerPage() {
             width="85%"
             backgroundColor="#D1D1D1"
             name="phone"
+            onChange={onInputChange}
+            value={newCustomer.phone}
           />
         </FormSection>
         <FormSection>
@@ -68,6 +91,8 @@ function AddCustomerPage() {
             width="85%"
             backgroundColor="#D1D1D1"
             name="installmentsValue"
+            onChange={onInputChange}
+            value={newCustomer.installmentsValue}
           />
         </FormSection>
         <FormSection>
@@ -78,6 +103,8 @@ function AddCustomerPage() {
             width="85%"
             backgroundColor="#D1D1D1"
             name="installmentsCount"
+            onChange={onInputChange}
+            value={newCustomer.installmentsCount}
           />
         </FormSection>
         <Button

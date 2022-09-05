@@ -48,7 +48,7 @@ Input.propTypes = {
   width: PropTypes.string,
   fontSize: PropTypes.string,
   onChange: PropTypes.func.isRequired,
-  value: PropTypes.string.isRequired,
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
   backgroundColor: PropTypes.string,
   fontColor: PropTypes.string,
   name: PropTypes.string,
