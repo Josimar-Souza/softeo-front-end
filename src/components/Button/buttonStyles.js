@@ -21,6 +21,10 @@ const ButtonStyle = styled.button`
   :active {
     transform: scale(1.1, 1.1);
   }
+
+  @media (max-width: 540px) {
+    width: 15%;
+  }
 `;
 
 const styles = {
