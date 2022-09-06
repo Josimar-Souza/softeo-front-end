@@ -38,11 +38,16 @@ const FormSectionTitle = styled.h1`
   margin-bottom: 10px;
 `;
 
+const FormFeedback = styled.p`
+  color: ${({ fontColor }) => fontColor}
+`;
+
 const styles = {
   AddCustomerPageSection,
   AddCustomerForm,
   FormSection,
   FormSectionTitle,
+  FormFeedback,
 };
 
 export default styles;

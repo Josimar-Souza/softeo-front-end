@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styles from './addCustomerPageStyles';
 import Header from '../../components/Header';
 import Input from '../../components/Input';
@@ -9,6 +10,8 @@ const { REACT_APP_API_URL } = process.env;
 const customersAPI = new CustomersAPI(REACT_APP_API_URL, 10000);
 
 function AddCustomerPage() {
+  const navigate = useNavigate();
+
   const [newCustomer, setNewCustomer] = useState(
     {
       name: '',
@@ -18,12 +21,14 @@ function AddCustomerPage() {
       installmentsCount: 0,
     },
   );
+  const [feedbackMessage, setFeedbackMessage] = useState({ message: '', visible: false, color: '' });
 
   const {
     AddCustomerPageSection,
     FormSection,
     AddCustomerForm,
     FormSectionTitle,
+    FormFeedback,
   } = styles;
 
   const getBusinessDay = (day) => {
@@ -100,7 +105,23 @@ function AddCustomerPage() {
 
     const result = await customersAPI.createNewCustomer(customer);
 
-    console.log(result);
+    if (result.status) {
+      setFeedbackMessage({
+        message: result.message,
+        visible: true,
+        color: 'red',
+      });
+    } else {
+      setFeedbackMessage({
+        message: result,
+        visible: true,
+        color: 'green',
+      });
+
+      setTimeout(() => {
+        navigate('/');
+      }, 3000);
+    }
   };
 
   const onInputChange = ({ target: { name, value } }) => {
@@ -117,6 +138,20 @@ function AddCustomerPage() {
     fontSize: '2vw',
     margin: '3rem 0 0 0',
     onClick: onAddButtonClick,
+  };
+
+  const getFormFeedback = () => {
+    if (feedbackMessage.visible) {
+      return (
+        <FormFeedback
+          fontColor={feedbackMessage.color}
+        >
+          { feedbackMessage.message }
+        </FormFeedback>
+      );
+    }
+
+    return null;
   };
 
   return (
@@ -183,6 +218,7 @@ function AddCustomerPage() {
             value={newCustomer.installmentsCount}
           />
         </FormSection>
+        { getFormFeedback() }
         <Button
           config={addButtonConfig}
         >
