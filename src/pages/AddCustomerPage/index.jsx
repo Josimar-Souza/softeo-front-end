@@ -158,6 +158,8 @@ function AddCustomerPage() {
     <AddCustomerPageSection>
       <Header
         pageTitle="Adicionar novo cliente"
+        backButton
+        backUrl="/"
       />
       <AddCustomerForm>
         <FormSection>

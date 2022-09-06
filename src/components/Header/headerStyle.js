@@ -4,7 +4,7 @@ const HeaderStyle = styled.div`
   align-items: center;
   background-color: #FC9F5B;
   display: flex;
-  justify-content: space-around;
+  justify-content: ${({ justifyContent }) => justifyContent};
   max-width: 100%;
   padding: 20px;
   width: 100%;
@@ -15,7 +15,12 @@ const PageTitle = styled.h1`
   font-size: 3vw;
 `;
 
+const BackButtonImg = styled.img`
+  width: 100%;
+`;
+
 export default {
   HeaderStyle,
   PageTitle,
+  BackButtonImg,
 };
