@@ -65,14 +65,23 @@ function MainPage() {
     margin: '5rem 0 2rem 0',
   };
 
-  const getTable = () => {
-    if (customers.length === 0) {
-      return (
-        <Loading />
-      );
-    }
-
+  if (customers.length === 0) {
     return (
+      <Loading />
+    );
+  }
+
+  return (
+    <MainPageSection>
+      { getRemoveModal() }
+      <Header
+        pageTitle="Clientes"
+      />
+      <Button
+        config={addCustomerButtonConfig}
+      >
+        Adicionar cliente
+      </Button>
       <ClientsTable>
         <tbody>
           <TableHeaderRow>
@@ -93,23 +102,6 @@ function MainPage() {
           }
         </tbody>
       </ClientsTable>
-    );
-  };
-
-  return (
-    <MainPageSection>
-      { getRemoveModal() }
-      <Header
-        pageTitle="Clientes"
-      />
-      <Button
-        config={addCustomerButtonConfig}
-      >
-        Adicionar cliente
-      </Button>
-      {
-        getTable()
-      }
     </MainPageSection>
   );
 }

@@ -5,10 +5,13 @@ function Loading() {
   const {
     LoadingStyle,
     LoadingTitle,
+    LoadingContainer,
   } = styles;
   return (
     <LoadingStyle>
-      <LoadingTitle>Loading...</LoadingTitle>
+      <LoadingContainer>
+        <LoadingTitle>Carregando...</LoadingTitle>
+      </LoadingContainer>
     </LoadingStyle>
   );
 }
