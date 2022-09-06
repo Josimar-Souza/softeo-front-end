@@ -4,6 +4,8 @@ import styles from './detailsPage';
 import Header from '../../components/Header';
 import CustomersAPI from '../../api/customersAPI';
 import getCurrencyFormat from '../../helpers/getCurrencyFormat';
+import phoneNumberFormatter from '../../helpers/phoneNumberFormatter';
+import Loading from '../../components/Loading';
 
 const { REACT_APP_API_URL } = process.env;
 const customersAPI = new CustomersAPI(REACT_APP_API_URL, 10000);
@@ -48,15 +50,27 @@ function DetailsPage() {
 
   const getInstallments = (installment) => {
     const date = new Date(installment.date);
-    const formattedDAte = `${date.getDate()}/${formatMonth(date.getMonth() + 1)}/${date.getFullYear()}`;
+    const formattedDate = `${date.getDate()}/${formatMonth(date.getMonth() + 1)}/${date.getFullYear()}`;
 
     return (
       <li>
-        <CustomerInfo>{ formattedDAte }</CustomerInfo>
-        <CustomerInfo>{ formatInstallmentValue(installment.value) }</CustomerInfo>
+        <CustomerInfo>{ `Data: ${formattedDate}` }</CustomerInfo>
+        <CustomerInfo>{ `Valor: ${formatInstallmentValue(installment.value)}` }</CustomerInfo>
       </li>
     );
   };
+
+  const getInstallmentsTotal = () => {
+    const total = installments.reduce((acc, curr) => acc + curr.value, 0);
+
+    return formatInstallmentValue(total);
+  };
+
+  if (Object.keys(customer).length === 0) {
+    return (
+      <Loading />
+    );
+  }
 
   return (
     <DetailsPageSection>
@@ -68,12 +82,14 @@ function DetailsPage() {
       <CustomerInfoSection>
         <CustomerName>{ name }</CustomerName>
         <CustomerInfo>{ `Email: ${email}` }</CustomerInfo>
-        <CustomerInfo>{ `Telefone: ${phone}` }</CustomerInfo>
+        <CustomerInfo>{ `Telefone: ${phoneNumberFormatter(phone)}` }</CustomerInfo>
+        <CustomerInfo>Parcelas:</CustomerInfo>
         <InstalmmentsContainer>
           {
             installments.map((installment) => getInstallments(installment))
           }
         </InstalmmentsContainer>
+        <CustomerInfo>{`Total: ${getInstallmentsTotal()}`}</CustomerInfo>
       </CustomerInfoSection>
     </DetailsPageSection>
   );

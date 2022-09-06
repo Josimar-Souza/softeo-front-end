@@ -23,14 +23,16 @@ const CustomerInfoSection = styled.div`
 
 const CustomerName = styled.h1`
   font-size: 3vw;
+  text-align: center;
 `;
 
 const CustomerInfo = styled.p`
-  font-size: 2vw;
+  font-size: 1.5vw;
   margin: 2rem 0;
+  text-align: center;
 `;
 
-const InstalmmentsContainer = styled.ul``;
+const InstalmmentsContainer = styled.ol``;
 
 const styles = {
   DetailsPageSection,
