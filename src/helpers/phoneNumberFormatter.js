@@ -8,7 +8,7 @@ const phoneNumberFormatter = (number) => {
   for (let index = 0; index < number.length; index += 1) {
     switch (index) {
       case 0:
-        formattedNumber += `+55 (${number[index]}`;
+        formattedNumber += `(${number[index]}`;
         break;
       case 1:
         formattedNumber += `${number[index]}) `;
