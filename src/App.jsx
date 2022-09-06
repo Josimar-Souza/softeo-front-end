@@ -8,6 +8,7 @@ function App() {
     <Routes>
       <Route exact path="/" element={<pages.MainPage />} />
       <Route exact path="/add-customer" element={<pages.AddCustomerPage />} />
+      <Route exact path="/:id" element={<pages.DetailsPage />} />
     </Routes>
   );
 }

@@ -15,7 +15,7 @@ function Header({ pageTitle, backButton, backUrl }) {
 
   const backButtonConfig = {
     onClick: onBackButtonClick,
-    width: '5%',
+    width: '6%',
     backgroundColor: 'rgba(0, 0, 0, 0)',
   };
 
