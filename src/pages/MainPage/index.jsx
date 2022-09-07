@@ -78,7 +78,9 @@ function MainPage() {
       <Header
         pageTitle="Clientes"
       />
-      <DateFilter />
+      <DateFilter
+        customers={customers}
+      />
       <Button
         config={addCustomerButtonConfig}
       >

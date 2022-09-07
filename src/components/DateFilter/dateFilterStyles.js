@@ -28,11 +28,24 @@ const InputTitle = styled.p`
   margin: 0 10px;
 `;
 
+const FilterTotal = styled.p`
+  font-size: 2vw;
+  margin-top: 1.5rem;
+`;
+
+const FeedBackMessage = styled.p`
+  color: red;
+  font-size: 1.3vw;
+  margin-top: 10px;
+`;
+
 const styles = {
   DateFilterStyle,
   FilterTitle,
   InputsContainer,
   InputTitle,
+  FilterTotal,
+  FeedBackMessage,
 };
 
 export default styles;
