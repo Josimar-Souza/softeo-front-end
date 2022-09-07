@@ -15,7 +15,7 @@ const ClientsTable = styled.table`
   display: flex;
   flex-direction: column;
   max-width: 100%;
-  margin: 0 auto;
+  margin: 4rem auto;
   width: 80%;
 `;
 

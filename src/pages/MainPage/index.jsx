@@ -7,6 +7,7 @@ import CustomerRow from '../../components/CustomerRow';
 import RemoveModal from '../../components/RemoveModal';
 import Button from '../../components/Button';
 import Loading from '../../components/Loading';
+import DateFilter from '../../components/DateFilter';
 
 const { REACT_APP_API_URL } = process.env;
 const customersAPI = new CustomersAPI(REACT_APP_API_URL, 10000);
@@ -77,6 +78,7 @@ function MainPage() {
       <Header
         pageTitle="Clientes"
       />
+      <DateFilter />
       <Button
         config={addCustomerButtonConfig}
       >
