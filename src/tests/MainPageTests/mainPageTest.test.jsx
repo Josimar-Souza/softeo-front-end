@@ -11,7 +11,6 @@ import customersMock from '../mocks/customersMock';
 describe('Testes da página principal', () => {
   beforeEach(() => {
     jest.spyOn(customersAPI, 'getAllCustomers').mockResolvedValue(customersMock);
-    renderWithRouter(<pages.MainPage />);
   });
 
   afterEach(() => {
@@ -20,6 +19,10 @@ describe('Testes da página principal', () => {
 
   describe('Testes do header', () => {
     it('Verifica se existe um título escrito "Clientes"', async () => {
+      act(() => {
+        renderWithRouter(<pages.MainPage />);
+      });
+
       const pageTitle = await screen.findByRole('heading', { name: 'Clientes' });
 
       expect(pageTitle).toBeInTheDocument();
@@ -28,12 +31,20 @@ describe('Testes da página principal', () => {
 
   describe('Testes do filtro por período', () => {
     it('Verifica se existe um título escrito "Ganhos por períodos"', async () => {
+      act(() => {
+        renderWithRouter(<pages.MainPage />);
+      });
+
       const filterTitle = await screen.findByRole('heading', { name: 'Ganhos por período' });
 
       expect(filterTitle).toBeInTheDocument();
     });
 
     it('Verifica se existem 2 inputs para as datas', async () => {
+      act(() => {
+        renderWithRouter(<pages.MainPage />);
+      });
+
       const inputFrom = await screen.findByTestId('filter-input-from');
       const inputTo = await screen.findByTestId('filter-input-to');
 
@@ -42,12 +53,20 @@ describe('Testes da página principal', () => {
     });
 
     it('Verifica se existe um botão escrito "Filtrar"', async () => {
+      act(() => {
+        renderWithRouter(<pages.MainPage />);
+      });
+
       const filterButton = await screen.findByRole('button', { name: 'Filtrar' });
 
       expect(filterButton).toBeInTheDocument();
     });
 
     it('Verifica se existe um parágrafo mostrando o valor do filtrado', async () => {
+      act(() => {
+        renderWithRouter(<pages.MainPage />);
+      });
+
       const filterTotal = await screen.findByTestId('filter-total');
 
       expect(filterTotal).toBeInTheDocument();
@@ -55,6 +74,10 @@ describe('Testes da página principal', () => {
     });
 
     it('Verifica se o filtro está funcionando corretamente', async () => {
+      act(() => {
+        renderWithRouter(<pages.MainPage />);
+      });
+
       const inputFrom = await screen.findByTestId('filter-input-from');
       const inputTo = await screen.findByTestId('filter-input-to');
       const filterButton = await screen.findByRole('button', { name: 'Filtrar' });

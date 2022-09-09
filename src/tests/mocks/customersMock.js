@@ -17,6 +17,7 @@ const customersMock = [
         value: 260,
       },
     ],
+    _id: '63178f86d2739b7ffc91c0d22',
   },
   {
     name: 'Test 2',
@@ -48,6 +49,7 @@ const customersMock = [
         value: 160,
       },
     ],
+    _id: '63178f86d2739b7ffc9ght458',
   },
   {
     name: 'Test 3',
@@ -75,6 +77,7 @@ const customersMock = [
         value: 340,
       },
     ],
+    _id: '63178f86d2739b7fflkb879fr',
   },
   {
     name: 'Test 4',
@@ -114,6 +117,7 @@ const customersMock = [
         value: 360,
       },
     ],
+    _id: '5487gf52d2739b7ffc91c0d22',
   },
   {
     name: 'Test 5',
@@ -169,6 +173,7 @@ const customersMock = [
         value: 150,
       },
     ],
+    _id: '63178f86dftr875fcc91c0d22',
   },
 ];
 
