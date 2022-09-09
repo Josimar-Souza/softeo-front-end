@@ -10,7 +10,7 @@ import Loading from '../../components/Loading';
 import DateFilter from '../../components/DateFilter';
 
 const { REACT_APP_API_URL } = process.env;
-const customersAPI = new CustomersAPI(REACT_APP_API_URL, 10000);
+export const customersAPI = new CustomersAPI(REACT_APP_API_URL, 10000);
 
 function MainPage() {
   const [customers, setCustomers] = useState([]);
