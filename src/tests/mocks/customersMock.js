@@ -5,15 +5,15 @@ const customersMock = [
     phone: '21943625879',
     installments: [
       {
-        date: new Date('2022-05-15T00:00:00'),
+        date: '2022-05-15T00:00:00',
         value: 260,
       },
       {
-        date: new Date('2022-06-15T00:00:00'),
+        date: '2022-06-15T00:00:00',
         value: 260,
       },
       {
-        date: new Date('2022-07-15T00:00:00'),
+        date: '2022-07-15T00:00:00',
         value: 260,
       },
     ],
@@ -24,27 +24,27 @@ const customersMock = [
     phone: '45996321578',
     installments: [
       {
-        date: new Date('2022-08-15T00:00:00'),
+        date: '2022-08-15T00:00:00',
         value: 160,
       },
       {
-        date: new Date('2022-09-15T00:00:00'),
+        date: '2022-09-15T00:00:00',
         value: 160,
       },
       {
-        date: new Date('2022-10-15T00:00:00'),
+        date: '2022-10-15T00:00:00',
         value: 160,
       },
       {
-        date: new Date('2022-11-15T00:00:00'),
+        date: '2022-11-15T00:00:00',
         value: 160,
       },
       {
-        date: new Date('2022-12-15T00:00:00'),
+        date: '2022-12-15T00:00:00',
         value: 160,
       },
       {
-        date: new Date('2023-01-15T00:00:00'),
+        date: '2023-01-15T00:00:00',
         value: 160,
       },
     ],
@@ -55,23 +55,23 @@ const customersMock = [
     phone: '56932147898',
     installments: [
       {
-        date: new Date('2022-02-15T00:00:00'),
+        date: '2022-02-15T00:00:00',
         value: 340,
       },
       {
-        date: new Date('2022-03-15T00:00:00'),
+        date: '2022-03-15T00:00:00',
         value: 340,
       },
       {
-        date: new Date('2022-04-15T00:00:00'),
+        date: '2022-04-15T00:00:00',
         value: 340,
       },
       {
-        date: new Date('2022-05-15T00:00:00'),
+        date: '2022-05-15T00:00:00',
         value: 340,
       },
       {
-        date: new Date('2022-06-15T00:00:00'),
+        date: '2022-06-15T00:00:00',
         value: 340,
       },
     ],
@@ -82,35 +82,35 @@ const customersMock = [
     phone: '21985632547',
     installments: [
       {
-        date: new Date('2022-04-15T00:00:00'),
+        date: '2022-04-15T00:00:00',
         value: 360,
       },
       {
-        date: new Date('2022-05-15T00:00:00'),
+        date: '2022-05-15T00:00:00',
         value: 360,
       },
       {
-        date: new Date('2022-06-15T00:00:00'),
+        date: '2022-06-15T00:00:00',
         value: 360,
       },
       {
-        date: new Date('2022-07-15T00:00:00'),
+        date: '2022-07-15T00:00:00',
         value: 360,
       },
       {
-        date: new Date('2022-08-15T00:00:00'),
+        date: '2022-08-15T00:00:00',
         value: 360,
       },
       {
-        date: new Date('2022-09-15T00:00:00'),
+        date: '2022-09-15T00:00:00',
         value: 360,
       },
       {
-        date: new Date('2022-10-15T00:00:00'),
+        date: '2022-10-15T00:00:00',
         value: 360,
       },
       {
-        date: new Date('2022-11-15T00:00:00'),
+        date: '2022-11-15T00:00:00',
         value: 360,
       },
     ],
@@ -121,51 +121,51 @@ const customersMock = [
     phone: '78956214326',
     installments: [
       {
-        date: new Date('2022-07-15T00:00:00'),
+        date: '2022-07-15T00:00:00',
         value: 150,
       },
       {
-        date: new Date('2022-08-15T00:00:00'),
+        date: '2022-08-15T00:00:00',
         value: 150,
       },
       {
-        date: new Date('2022-09-15T00:00:00'),
+        date: '2022-09-15T00:00:00',
         value: 150,
       },
       {
-        date: new Date('2022-10-15T00:00:00'),
+        date: '2022-10-15T00:00:00',
         value: 150,
       },
       {
-        date: new Date('2022-11-15T00:00:00'),
+        date: '2022-11-15T00:00:00',
         value: 150,
       },
       {
-        date: new Date('2022-12-15T00:00:00'),
+        date: '2022-12-15T00:00:00',
         value: 150,
       },
       {
-        date: new Date('2023-01-15T00:00:00'),
+        date: '2023-01-15T00:00:00',
         value: 150,
       },
       {
-        date: new Date('2023-02-15T00:00:00'),
+        date: '2023-02-15T00:00:00',
         value: 150,
       },
       {
-        date: new Date('2023-03-15T00:00:00'),
+        date: '2023-03-15T00:00:00',
         value: 150,
       },
       {
-        date: new Date('2023-04-15T00:00:00'),
+        date: '2023-04-15T00:00:00',
         value: 150,
       },
       {
-        date: new Date('2023-05-15T00:00:00'),
+        date: '2023-05-15T00:00:00',
         value: 150,
       },
       {
-        date: new Date('2023-06-15T00:00:00'),
+        date: '2023-06-15T00:00:00',
         value: 150,
       },
     ],
