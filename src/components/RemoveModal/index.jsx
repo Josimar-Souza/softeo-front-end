@@ -26,7 +26,6 @@ function RemoveModal({ customer, config }) {
 
   const onRemoveButtonClick = async () => {
     const resultMessage = await customersAPI.deleteCustomerById(customer._id);
-
     if (resultMessage.status) {
       setFeedbackMessage(
         {
@@ -79,6 +78,7 @@ function RemoveModal({ customer, config }) {
     width: '47%',
     fontSize: '2vw',
     fontColor: 'white',
+    testId: 'remove-modal-button',
   };
 
   return (

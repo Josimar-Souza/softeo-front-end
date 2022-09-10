@@ -10,7 +10,7 @@ import Loading from '../../components/Loading';
 import DateFilter from '../../components/DateFilter';
 
 const { REACT_APP_API_URL } = process.env;
-const customersAPI = new CustomersAPI(REACT_APP_API_URL, 10000);
+export const customersAPI = new CustomersAPI(REACT_APP_API_URL, 10000);
 
 function MainPage() {
   const [customers, setCustomers] = useState([]);
@@ -96,11 +96,12 @@ function MainPage() {
             <TableHeader>Ações</TableHeader>
           </TableHeaderRow>
           {
-            customers.map((customer) => (
+            customers.map((customer, index) => (
               <CustomerRow
                 key={customer._id}
                 customer={customer}
                 config={modalConfig}
+                index={index}
               />
             ))
           }

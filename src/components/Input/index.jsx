@@ -15,6 +15,7 @@ function Input(props) {
     backgroundColor,
     fontColor,
     name,
+    testId,
   } = props;
 
   return (
@@ -28,6 +29,7 @@ function Input(props) {
       backgroundColor={backgroundColor}
       fontColor={fontColor}
       name={name}
+      data-testid={testId}
     />
   );
 }
@@ -40,6 +42,7 @@ Input.defaultProps = {
   backgroundColor: 'white',
   fontColor: 'black',
   name: '',
+  testId: '',
 };
 
 Input.propTypes = {
@@ -52,6 +55,7 @@ Input.propTypes = {
   backgroundColor: PropTypes.string,
   fontColor: PropTypes.string,
   name: PropTypes.string,
+  testId: PropTypes.string,
 };
 
 export default Input;

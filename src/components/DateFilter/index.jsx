@@ -90,6 +90,7 @@ function DateFilter({ customers }) {
           name="from"
           value={filter.from}
           onChange={onInputChange}
+          testId="filter-input-from"
         />
         <InputTitle>Até</InputTitle>
         <Input
@@ -97,6 +98,7 @@ function DateFilter({ customers }) {
           name="to"
           value={filter.to}
           onChange={onInputChange}
+          testId="filter-input-to"
         />
         <Button
           config={filterButtonConfig}
@@ -104,7 +106,11 @@ function DateFilter({ customers }) {
           Filtrar
         </Button>
       </InputsContainer>
-      <FilterTotal>{ getCurrencyFormat(filter.total, 'pt-BR', 'currency', 'BRL') }</FilterTotal>
+      <FilterTotal
+        data-testid="filter-total"
+      >
+        { getCurrencyFormat(filter.total, 'pt-BR', 'currency', 'BRL') }
+      </FilterTotal>
     </DateFilterStyle>
   );
 }
