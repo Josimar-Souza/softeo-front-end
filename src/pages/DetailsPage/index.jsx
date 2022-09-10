@@ -55,8 +55,16 @@ function DetailsPage() {
 
     return (
       <li key={key}>
-        <CustomerInfo>{ `Data: ${formattedDate}` }</CustomerInfo>
-        <CustomerInfo>{ `Valor: ${formatInstallmentValue(installment.value)}` }</CustomerInfo>
+        <CustomerInfo
+          data-testid={`details-customer-date-${index}`}
+        >
+          { `Data: ${formattedDate}` }
+        </CustomerInfo>
+        <CustomerInfo
+          data-testid={`details-customer-value-${index}`}
+        >
+          { `Valor: ${formatInstallmentValue(installment.value)}` }
+        </CustomerInfo>
       </li>
     );
   };
@@ -102,7 +110,11 @@ function DetailsPage() {
             installments.map((installment, index) => getInstallments(installment, index))
           }
         </InstalmmentsContainer>
-        <CustomerInfo>{`Total: ${getInstallmentsTotal()}`}</CustomerInfo>
+        <CustomerInfo
+          data-testid="details-customer-total"
+        >
+          {`Total: ${getInstallmentsTotal()}`}
+        </CustomerInfo>
       </CustomerInfoSection>
     </DetailsPageSection>
   );
