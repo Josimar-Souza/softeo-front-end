@@ -48,12 +48,13 @@ function DetailsPage() {
     return month;
   };
 
-  const getInstallments = (installment) => {
+  const getInstallments = (installment, index) => {
     const date = new Date(installment.date);
     const formattedDate = `${date.getDate()}/${formatMonth(date.getMonth() + 1)}/${date.getFullYear()}`;
+    const key = `${date}-${index}`;
 
     return (
-      <li>
+      <li key={key}>
         <CustomerInfo>{ `Data: ${formattedDate}` }</CustomerInfo>
         <CustomerInfo>{ `Valor: ${formatInstallmentValue(installment.value)}` }</CustomerInfo>
       </li>
@@ -80,13 +81,25 @@ function DetailsPage() {
         backUrl="/"
       />
       <CustomerInfoSection>
-        <CustomerName>{ name }</CustomerName>
-        <CustomerInfo>{ `Email: ${email}` }</CustomerInfo>
-        <CustomerInfo>{ `Telefone: ${phoneNumberFormatter(phone)}` }</CustomerInfo>
+        <CustomerName
+          data-testid="details-customer-name"
+        >
+          { name }
+        </CustomerName>
+        <CustomerInfo
+          data-testid="details-customer-email"
+        >
+          { `Email: ${email}` }
+        </CustomerInfo>
+        <CustomerInfo
+          data-testid="details-customer-phone"
+        >
+          { `Telefone: ${phoneNumberFormatter(phone)}` }
+        </CustomerInfo>
         <CustomerInfo>Parcelas:</CustomerInfo>
         <InstalmmentsContainer>
           {
-            installments.map((installment) => getInstallments(installment))
+            installments.map((installment, index) => getInstallments(installment, index))
           }
         </InstalmmentsContainer>
         <CustomerInfo>{`Total: ${getInstallmentsTotal()}`}</CustomerInfo>
