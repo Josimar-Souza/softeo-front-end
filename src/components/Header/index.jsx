@@ -17,6 +17,7 @@ function Header({ pageTitle, backButton, backUrl }) {
     onClick: onBackButtonClick,
     width: '6%',
     backgroundColor: 'rgba(0, 0, 0, 0)',
+    testId: 'header-back-button',
   };
 
   const getBackButton = () => {

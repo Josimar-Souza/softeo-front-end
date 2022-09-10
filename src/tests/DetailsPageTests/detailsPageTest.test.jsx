@@ -23,5 +23,15 @@ describe('Testes da página de detalhes de um cliente', () => {
 
       expect(headerTitle).toBeInTheDocument();
     });
+
+    it('Verifica se existe um botão para voltar', async () => {
+      act(() => {
+        renderWithRouter(<pages.DetailsPage />);
+      });
+
+      const headerBackButton = await screen.findByTestId('header-back-button');
+
+      expect(headerBackButton).toBeInTheDocument();
+    });
   });
 });
