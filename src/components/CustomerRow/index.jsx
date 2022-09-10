@@ -6,7 +6,7 @@ import getCurrencyFormat from '../../helpers/getCurrencyFormat';
 import Button from '../Button';
 import phoneNumberFormatter from '../../helpers/phoneNumberFormatter';
 
-function CustomerRow({ customer, config }) {
+function CustomerRow({ customer, config, index }) {
   const navigate = useNavigate();
   const { setRemoveModal } = config;
 
@@ -45,10 +45,26 @@ function CustomerRow({ customer, config }) {
 
   return (
     <CustomerRowStyle>
-      <CustomerCell>{customer.name}</CustomerCell>
-      <CustomerCell>{customer.email}</CustomerCell>
-      <CustomerCell>{phoneNumberFormatter(customer.phone)}</CustomerCell>
-      <CustomerCell>{getInstallmentsTotal(customer.installments)}</CustomerCell>
+      <CustomerCell
+        data-testid={`customer-row-name-${index}`}
+      >
+        {customer.name}
+      </CustomerCell>
+      <CustomerCell
+        data-testid={`customer-row-email-${index}`}
+      >
+        {customer.email}
+      </CustomerCell>
+      <CustomerCell
+        data-testid={`customer-row-phone-${index}`}
+      >
+        {phoneNumberFormatter(customer.phone)}
+      </CustomerCell>
+      <CustomerCell
+        data-testid={`customer-row-total-${index}`}
+      >
+        {getInstallmentsTotal(customer.installments)}
+      </CustomerCell>
       <CustomerCell>
         <CustomerActions>
           <Button
@@ -78,6 +94,7 @@ CustomerRow.propTypes = {
   config: PropTypes.shape({
     setRemoveModal: PropTypes.func.isRequired,
   }).isRequired,
+  index: PropTypes.number.isRequired,
 };
 
 export default CustomerRow;

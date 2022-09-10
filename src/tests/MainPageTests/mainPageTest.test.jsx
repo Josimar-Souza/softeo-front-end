@@ -7,6 +7,8 @@ import renderWithRouter from '../helpers/renderWithRouter';
 import pages from '../../pages';
 import { customersAPI } from '../../pages/MainPage';
 import customersMock from '../mocks/customersMock';
+import phoneNumberFormatter from '../../helpers/phoneNumberFormatter';
+import getCurrencyFormat from '../../helpers/getCurrencyFormat';
 
 describe('Testes da página principal', () => {
   beforeEach(() => {
@@ -90,6 +92,120 @@ describe('Testes da página principal', () => {
 
       const filterTotal = await screen.findByTestId('filter-total');
       expect(filterTotal.textContent.normalize('NFKD')).toBe('R$ 3.360,00');
+    });
+  });
+
+  describe('Testes da tabela de clientes', () => {
+    it('Verifica se todos os nomes dos clientes aparecem normalmente', async () => {
+      act(() => {
+        renderWithRouter(<pages.MainPage />);
+      });
+
+      const namePromises = [];
+
+      for (let index = 0; index < customersMock.length; index += 1) {
+        const rowName = screen.findByTestId(`customer-row-name-${index}`);
+
+        namePromises.push(rowName);
+      }
+
+      const rowNames = await Promise.all(namePromises);
+
+      customersMock.forEach(({ name }, index) => {
+        expect(rowNames[index].textContent).toBe(name);
+      });
+    });
+
+    it('Verifica se todos os emails dos clientes aparecem normalmente', async () => {
+      act(() => {
+        renderWithRouter(<pages.MainPage />);
+      });
+
+      const emailPromises = [];
+
+      for (let index = 0; index < customersMock.length; index += 1) {
+        const rowEmail = screen.findByTestId(`customer-row-email-${index}`);
+
+        emailPromises.push(rowEmail);
+      }
+
+      const rowEmails = await Promise.all(emailPromises);
+
+      customersMock.forEach(({ email }, index) => {
+        expect(rowEmails[index].textContent).toBe(email);
+      });
+    });
+
+    it('Verifica se todos os números dos clientes aparecem normalmente', async () => {
+      act(() => {
+        renderWithRouter(<pages.MainPage />);
+      });
+
+      const phonePromises = [];
+
+      for (let index = 0; index < customersMock.length; index += 1) {
+        const rowPhone = screen.findByTestId(`customer-row-phone-${index}`);
+
+        phonePromises.push(rowPhone);
+      }
+
+      const rowPhones = await Promise.all(phonePromises);
+
+      customersMock.forEach(({ phone }, index) => {
+        expect(rowPhones[index].textContent).toBe(phoneNumberFormatter(phone));
+      });
+    });
+
+    it('Verifica se o total das parcelas dos clientes aparecem normalmente', async () => {
+      act(() => {
+        renderWithRouter(<pages.MainPage />);
+      });
+
+      const totalPromises = [];
+
+      for (let index = 0; index < customersMock.length; index += 1) {
+        const rowTotal = screen.findByTestId(`customer-row-total-${index}`);
+
+        totalPromises.push(rowTotal);
+      }
+
+      const rowTotals = await Promise.all(totalPromises);
+
+      customersMock.forEach(({ installments }, index) => {
+        const total = installments.reduce((acc, curr) => acc + curr.value, 0);
+        const formatterTotal = getCurrencyFormat(total, 'pt-BR', 'currency', 'BRL');
+
+        expect(rowTotals[index].textContent).toBe(formatterTotal);
+      });
+    });
+
+    it('Verifica se existe todos os botões de ação dos clientes', async () => {
+      act(() => {
+        renderWithRouter(<pages.MainPage />);
+      });
+
+      const removeButtons = await screen.findAllByRole('button', { name: 'Remover' });
+      const detailsButtons = await screen.findAllByRole('button', { name: 'Detalhes' });
+
+      expect(removeButtons.length).toBe(customersMock.length);
+      expect(detailsButtons.length).toBe(customersMock.length);
+    });
+
+    it('Verifica se ao clicar no botão "Remover", uma tela de confimação aparece', async () => {
+      act(() => {
+        renderWithRouter(<pages.MainPage />);
+      });
+
+      const removeButtons = await screen.findAllByRole('button', { name: 'Remover' });
+
+      act(() => {
+        userEvent.click(removeButtons[0]);
+      });
+
+      const modalTitle = `Tem certeza que deseja remover o cliente "${customersMock[0].name}"`;
+      const modalTitleElement = await screen.findByRole('heading', { name: modalTitle });
+
+      expect(modalTitleElement).toBeInTheDocument();
     });
   });
 });

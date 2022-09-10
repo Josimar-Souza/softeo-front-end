@@ -96,11 +96,12 @@ function MainPage() {
             <TableHeader>Ações</TableHeader>
           </TableHeaderRow>
           {
-            customers.map((customer) => (
+            customers.map((customer, index) => (
               <CustomerRow
                 key={customer._id}
                 customer={customer}
                 config={modalConfig}
+                index={index}
               />
             ))
           }
