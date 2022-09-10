@@ -208,4 +208,61 @@ describe('Testes da página principal', () => {
       expect(modalTitleElement).toBeInTheDocument();
     });
   });
+
+  describe('Testes da tela de confirmação', () => {
+    it('Verifica se existe um botão de cancelar', async () => {
+      act(() => {
+        renderWithRouter(<pages.MainPage />);
+      });
+
+      const removeButtons = await screen.findAllByRole('button', { name: 'Remover' });
+
+      act(() => {
+        userEvent.click(removeButtons[0]);
+      });
+
+      const cancelButton = await screen.findByRole('button', { name: 'Cancelar' });
+
+      expect(cancelButton).toBeInTheDocument();
+    });
+
+    it('Verifica se existe um botão de remover na tela de confirmação', async () => {
+      act(() => {
+        renderWithRouter(<pages.MainPage />);
+      });
+
+      const removeButtons = await screen.findAllByRole('button', { name: 'Remover' });
+
+      act(() => {
+        userEvent.click(removeButtons[0]);
+      });
+
+      const removeButton = await screen.findByTestId('remove-modal-button');
+
+      expect(removeButton).toBeInTheDocument();
+    });
+
+    it('Verifica se ao clicar no botão "Cancelar", a tela de confirmalção desaparece', async () => {
+      act(() => {
+        renderWithRouter(<pages.MainPage />);
+      });
+
+      const removeButtons = await screen.findAllByRole('button', { name: 'Remover' });
+
+      act(() => {
+        userEvent.click(removeButtons[0]);
+      });
+
+      const cancelButton = await screen.findByRole('button', { name: 'Cancelar' });
+
+      act(() => {
+        userEvent.click(cancelButton);
+      });
+
+      const modalTitle = `Tem certeza que deseja remover o cliente "${customersMock[0].name}"`;
+      const modalTitleElement = screen.queryByRole('heading', { name: modalTitle });
+
+      expect(modalTitleElement).not.toBeInTheDocument();
+    });
+  });
 });
