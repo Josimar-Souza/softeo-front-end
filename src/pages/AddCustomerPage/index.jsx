@@ -171,6 +171,7 @@ function AddCustomerPage() {
             name="name"
             onChange={onInputChange}
             value={newCustomer.name}
+            testId="add-customer-name-input"
           />
         </FormSection>
         <FormSection>

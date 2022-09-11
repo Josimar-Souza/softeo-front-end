@@ -27,4 +27,18 @@ describe('Testes da página para adicionar um novo cliente', () => {
       expect(backButton).toBeInTheDocument();
     });
   });
+
+  describe('Testes do formulário', () => {
+    it('Verifica se existe um título escrito "Nome" e um input', async () => {
+      act(() => {
+        renderWithRouter(<pages.AddCustomerPage />);
+      });
+
+      const nameTitle = await screen.findByRole('heading', { name: 'Nome' });
+      const nameInput = await screen.findByTestId('add-customer-name-input');
+
+      expect(nameTitle).toBeInTheDocument();
+      expect(nameInput).toBeInTheDocument();
+    });
+  });
 });
