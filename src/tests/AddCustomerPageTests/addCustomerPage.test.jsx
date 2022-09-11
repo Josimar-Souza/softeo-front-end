@@ -71,10 +71,22 @@ describe('Testes da página para adicionar um novo cliente', () => {
       });
 
       const installmentValue = await screen.findByRole('heading', { name: 'Valor das parcelas' });
-      const installmentInput = await screen.findByTestId('add-customer-value-input');
+      const installmentValueInput = await screen.findByTestId('add-customer-value-input');
 
       expect(installmentValue).toBeInTheDocument();
-      expect(installmentInput).toBeInTheDocument();
+      expect(installmentValueInput).toBeInTheDocument();
+    });
+
+    it('Verifica se existe um título escrito "Número de parcelas" e um input', async () => {
+      act(() => {
+        renderWithRouter(<pages.AddCustomerPage />);
+      });
+
+      const installmentCount = await screen.findByRole('heading', { name: 'Número de parcelas' });
+      const installmentCountInput = await screen.findByTestId('add-customer-count-input');
+
+      expect(installmentCount).toBeInTheDocument();
+      expect(installmentCountInput).toBeInTheDocument();
     });
   });
 });

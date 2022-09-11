@@ -222,6 +222,7 @@ function AddCustomerPage() {
             name="installmentsCount"
             onChange={onInputChange}
             value={newCustomer.installmentsCount}
+            testId="add-customer-count-input"
           />
         </FormSection>
         { getFormFeedback() }
