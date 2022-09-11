@@ -171,6 +171,7 @@ function AddCustomerPage() {
             name="name"
             onChange={onInputChange}
             value={newCustomer.name}
+            testId="add-customer-name-input"
           />
         </FormSection>
         <FormSection>
@@ -182,6 +183,7 @@ function AddCustomerPage() {
             name="email"
             onChange={onInputChange}
             value={newCustomer.email}
+            testId="add-customer-email-input"
           />
         </FormSection>
         <FormSection>
@@ -194,6 +196,7 @@ function AddCustomerPage() {
             name="phone"
             onChange={onInputChange}
             value={newCustomer.phone}
+            testId="add-customer-phone-input"
           />
         </FormSection>
         <FormSection>
@@ -206,6 +209,7 @@ function AddCustomerPage() {
             name="installmentsValue"
             onChange={onInputChange}
             value={newCustomer.installmentsValue}
+            testId="add-customer-value-input"
           />
         </FormSection>
         <FormSection>
@@ -218,6 +222,7 @@ function AddCustomerPage() {
             name="installmentsCount"
             onChange={onInputChange}
             value={newCustomer.installmentsCount}
+            testId="add-customer-count-input"
           />
         </FormSection>
         { getFormFeedback() }
