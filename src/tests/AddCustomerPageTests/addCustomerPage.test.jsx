@@ -52,5 +52,17 @@ describe('Testes da página para adicionar um novo cliente', () => {
       expect(emailTitle).toBeInTheDocument();
       expect(emailInput).toBeInTheDocument();
     });
+
+    it('Verifica se existe um título escrito "Celular" e um input', async () => {
+      act(() => {
+        renderWithRouter(<pages.AddCustomerPage />);
+      });
+
+      const phoneTitle = await screen.findByRole('heading', { name: 'Celular' });
+      const phoneInput = await screen.findByTestId('add-customer-phone-input');
+
+      expect(phoneTitle).toBeInTheDocument();
+      expect(phoneInput).toBeInTheDocument();
+    });
   });
 });

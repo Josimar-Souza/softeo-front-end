@@ -196,6 +196,7 @@ function AddCustomerPage() {
             name="phone"
             onChange={onInputChange}
             value={newCustomer.phone}
+            testId="add-customer-phone-input"
           />
         </FormSection>
         <FormSection>
