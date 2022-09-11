@@ -64,5 +64,17 @@ describe('Testes da página para adicionar um novo cliente', () => {
       expect(phoneTitle).toBeInTheDocument();
       expect(phoneInput).toBeInTheDocument();
     });
+
+    it('Verifica se existe um título escrito "Valor das parcelas" e um input', async () => {
+      act(() => {
+        renderWithRouter(<pages.AddCustomerPage />);
+      });
+
+      const installmentValue = await screen.findByRole('heading', { name: 'Valor das parcelas' });
+      const installmentInput = await screen.findByTestId('add-customer-value-input');
+
+      expect(installmentValue).toBeInTheDocument();
+      expect(installmentInput).toBeInTheDocument();
+    });
   });
 });

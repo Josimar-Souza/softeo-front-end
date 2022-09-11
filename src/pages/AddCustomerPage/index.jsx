@@ -209,6 +209,7 @@ function AddCustomerPage() {
             name="installmentsValue"
             onChange={onInputChange}
             value={newCustomer.installmentsValue}
+            testId="add-customer-value-input"
           />
         </FormSection>
         <FormSection>
