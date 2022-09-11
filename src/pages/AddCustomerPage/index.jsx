@@ -183,6 +183,7 @@ function AddCustomerPage() {
             name="email"
             onChange={onInputChange}
             value={newCustomer.email}
+            testId="add-customer-email-input"
           />
         </FormSection>
         <FormSection>

@@ -40,5 +40,17 @@ describe('Testes da página para adicionar um novo cliente', () => {
       expect(nameTitle).toBeInTheDocument();
       expect(nameInput).toBeInTheDocument();
     });
+
+    it('Verifica se existe um título escrito "Email" e um input', async () => {
+      act(() => {
+        renderWithRouter(<pages.AddCustomerPage />);
+      });
+
+      const emailTitle = await screen.findByRole('heading', { name: 'Email' });
+      const emailInput = await screen.findByTestId('add-customer-email-input');
+
+      expect(emailTitle).toBeInTheDocument();
+      expect(emailInput).toBeInTheDocument();
+    });
   });
 });
