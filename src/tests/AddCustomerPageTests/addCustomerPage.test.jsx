@@ -88,5 +88,15 @@ describe('Testes da página para adicionar um novo cliente', () => {
       expect(installmentCount).toBeInTheDocument();
       expect(installmentCountInput).toBeInTheDocument();
     });
+
+    it('Verifica se existe um botão escrito "Adicionar"', async () => {
+      act(() => {
+        renderWithRouter(<pages.AddCustomerPage />);
+      });
+
+      const addButton = await screen.findByRole('button', { name: 'Adicionar' });
+
+      expect(addButton).toBeInTheDocument();
+    });
   });
 });
