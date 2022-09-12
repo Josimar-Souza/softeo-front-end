@@ -48,7 +48,7 @@ function RemoveModal({ customer, config }) {
     setTimeout(() => {
       setRemoveModal({ visible: false, customer: {} });
       refreshPage();
-    }, 5000);
+    }, 3000);
   };
 
   const getFeedbackMessage = () => {
