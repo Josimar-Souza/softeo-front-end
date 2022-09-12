@@ -30,7 +30,10 @@ const TableHeader = styled.th`
   width: 20%;
 `;
 
-const PhoneClientsSection = styled.div``;
+const PhoneClientsSection = styled.div`
+  max-width: 100%;
+  width: 100%;
+`;
 
 export default {
   MainPageSection,
