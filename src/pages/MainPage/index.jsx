@@ -16,6 +16,7 @@ export const customersAPI = new CustomersAPI(REACT_APP_API_URL, 10000);
 
 function MainPage() {
   const [customers, setCustomers] = useState([]);
+  const [loading, setLoading] = useState({ loading: true, error: false });
   const [removeModal, setRemoveModal] = useState({ visible: false, customer: {} });
   const navigate = useNavigate();
 
@@ -23,7 +24,12 @@ function MainPage() {
     const getCustomers = async () => {
       const fetchedCustomers = await customersAPI.getAllCustomers();
 
-      setCustomers(fetchedCustomers);
+      if (typeof (fetchedCustomers) === 'object') {
+        setCustomers(fetchedCustomers);
+        setLoading({ ...loading, loading: false });
+      } else {
+        setLoading({ loading: false, error: true });
+      }
     };
 
     getCustomers();
@@ -71,48 +77,54 @@ function MainPage() {
   };
 
   const getCustomersTable = () => {
-    if (isMobile) {
+    if (customers.length !== 0) {
+      if (isMobile) {
+        return (
+          <PhoneClientsSection>
+            {
+              customers.map((customer) => (
+                <CustomerCard
+                  key={customer._id}
+                  customer={customer}
+                  setRemoveModal={setRemoveModal}
+                />
+              ))
+            }
+          </PhoneClientsSection>
+        );
+      }
+
       return (
-        <PhoneClientsSection>
-          {
-            customers.map((customer) => (
-              <CustomerCard
-                key={customer._id}
-                customer={customer}
-                setRemoveModal={setRemoveModal}
-              />
-            ))
-          }
-        </PhoneClientsSection>
+        <ClientsTable>
+          <tbody>
+            <TableHeaderRow>
+              <TableHeader>Nome</TableHeader>
+              <TableHeader>Email</TableHeader>
+              <TableHeader>Celular</TableHeader>
+              <TableHeader>Total</TableHeader>
+              <TableHeader>Ações</TableHeader>
+            </TableHeaderRow>
+            {
+              customers.map((customer, index) => (
+                <CustomerRow
+                  key={customer._id}
+                  customer={customer}
+                  config={modalConfig}
+                  index={index}
+                />
+              ))
+            }
+          </tbody>
+        </ClientsTable>
       );
     }
 
     return (
-      <ClientsTable>
-        <tbody>
-          <TableHeaderRow>
-            <TableHeader>Nome</TableHeader>
-            <TableHeader>Email</TableHeader>
-            <TableHeader>Celular</TableHeader>
-            <TableHeader>Total</TableHeader>
-            <TableHeader>Ações</TableHeader>
-          </TableHeaderRow>
-          {
-            customers.map((customer, index) => (
-              <CustomerRow
-                key={customer._id}
-                customer={customer}
-                config={modalConfig}
-                index={index}
-              />
-            ))
-          }
-        </tbody>
-      </ClientsTable>
+      <h1>Lista vazia!</h1>
     );
   };
 
-  if (customers.length === 0) {
+  if (loading.loading) {
     return (
       <Loading />
     );

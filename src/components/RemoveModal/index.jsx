@@ -70,6 +70,7 @@ function RemoveModal({ customer, config }) {
     backgroundColor: 'lightgreen',
     width: '47%',
     fontSize: '2vw',
+    phoneFontSize: '4vw',
   };
 
   const removeButtonConfig = {
@@ -77,6 +78,7 @@ function RemoveModal({ customer, config }) {
     backgroundColor: 'red',
     width: '47%',
     fontSize: '2vw',
+    phoneFontSize: '4vw',
     fontColor: 'white',
     testId: 'remove-modal-button',
   };
