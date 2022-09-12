@@ -23,7 +23,9 @@ const ButtonStyle = styled.button`
   }
 
   @media (max-width: 540px) {
-    width: 15%;
+    width: ${({ phoneWidth }) => phoneWidth};
+    font-size: ${({ phoneFontSize }) => phoneFontSize};
+    margin: 15px 0;
   }
 `;
 

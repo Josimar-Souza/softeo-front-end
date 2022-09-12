@@ -18,14 +18,18 @@ function Button(props) {
     onClick,
     margin,
     testId,
+    phoneWidth,
+    phoneFontSize,
   } = config;
 
   return (
     <ButtonStyle
       fontSize={fontSize}
+      phoneFontSize={phoneFontSize}
       fontColor={fontColor}
       backgroundColor={backgroundColor}
       width={width}
+      phoneWidth={phoneWidth}
       onClick={onClick}
       margin={margin}
       data-testid={testId}
@@ -43,6 +47,8 @@ Button.defaultProps = {
     width: '50%',
     margin: '0',
     testId: '',
+    phoneWidth: '35%',
+    phoneFontSize: '4vw',
   },
 };
 
@@ -56,6 +62,8 @@ Button.propTypes = {
     onClick: PropTypes.func.isRequired,
     margin: PropTypes.string,
     testId: PropTypes.string,
+    phoneWidth: PropTypes.string,
+    phoneFontSize: PropTypes.string,
   }),
 };
 

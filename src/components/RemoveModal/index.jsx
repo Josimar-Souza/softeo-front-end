@@ -48,7 +48,7 @@ function RemoveModal({ customer, config }) {
     setTimeout(() => {
       setRemoveModal({ visible: false, customer: {} });
       refreshPage();
-    }, 5000);
+    }, 3000);
   };
 
   const getFeedbackMessage = () => {
@@ -70,6 +70,7 @@ function RemoveModal({ customer, config }) {
     backgroundColor: 'lightgreen',
     width: '47%',
     fontSize: '2vw',
+    phoneFontSize: '4vw',
   };
 
   const removeButtonConfig = {
@@ -77,6 +78,7 @@ function RemoveModal({ customer, config }) {
     backgroundColor: 'red',
     width: '47%',
     fontSize: '2vw',
+    phoneFontSize: '4vw',
     fontColor: 'white',
     testId: 'remove-modal-button',
   };

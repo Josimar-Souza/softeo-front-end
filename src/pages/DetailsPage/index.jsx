@@ -87,6 +87,7 @@ function DetailsPage() {
         pageTitle={`Detalhes do cliente ${customer.name}`}
         backButton
         backUrl="/"
+        phoneFontSize="4.8vw"
       />
       <CustomerInfoSection>
         <CustomerName

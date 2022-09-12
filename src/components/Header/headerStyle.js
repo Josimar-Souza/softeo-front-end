@@ -13,6 +13,11 @@ const HeaderStyle = styled.div`
 const PageTitle = styled.h1`
   color: #607196;
   font-size: 3vw;
+  text-align: center;
+
+  @media (max-width: 540px) {
+    font-size: ${({ phoneFontSize }) => phoneFontSize};
+  }
 `;
 
 const BackButtonImg = styled.img`

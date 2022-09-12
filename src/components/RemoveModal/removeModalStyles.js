@@ -22,10 +22,19 @@ const ModalContainer = styled.div`
   max-width: 100%;
   padding: 1.2rem;
   width: 60%;
+
+  @media (max-width: 540px) {
+    width: 80%;
+  }
 `;
 
 const ModalTitle = styled.h1`
   font-size: 2vw;
+
+  @media (max-width: 540px) {
+    font-size: 5vw;
+    text-align: center;
+  }
 `;
 
 const ButtonContainer = styled.div`
@@ -39,6 +48,11 @@ const ButtonContainer = styled.div`
 const FeedbackMessage = styled.p`
   font-size: 1.5vw;
   color: ${({ fontColor }) => fontColor};
+  margin: 10px 0;
+
+  @media (max-width: 540px) {
+    font-size: 5vw;
+  }
 `;
 
 const styles = {

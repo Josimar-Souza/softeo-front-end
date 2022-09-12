@@ -22,8 +22,12 @@ const LoadingContainer = styled.div`
 `;
 
 const LoadingTitle = styled.h1`
-  fontSize: 3vw;
+  font-size: 3vw;
   margin: 15px;
+
+  @media (max-width: 540px) {
+    font-size: 6vw;
+  }
 `;
 
 const styles = {
