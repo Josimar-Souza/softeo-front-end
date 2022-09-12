@@ -76,7 +76,10 @@ function MainPage() {
         <PhoneClientsSection>
           {
             customers.map((customer) => (
-              <CustomerCard customer={customer} />
+              <CustomerCard
+                customer={customer}
+                setRemoveModal={setRemoveModal}
+              />
             ))
           }
         </PhoneClientsSection>

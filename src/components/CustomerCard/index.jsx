@@ -5,7 +5,7 @@ import phoneNumberFormatter from '../../helpers/phoneNumberFormatter';
 import getCurrencyFormat from '../../helpers/getCurrencyFormat';
 import Button from '../Button';
 
-function CustomerCard({ customer }) {
+function CustomerCard({ customer, setRemoveModal }) {
   const {
     CardStyle,
     CustomerName,
@@ -24,6 +24,7 @@ function CustomerCard({ customer }) {
     fontColor: 'white',
     phoneFontSize: '4.5vw',
     phoneWidth: '40%',
+    onClick: () => setRemoveModal({ visible: true, customer }),
   };
 
   const detailsButtonConfig = {
@@ -62,6 +63,7 @@ CustomerCard.propTypes = {
     phone: PropTypes.string.isRequired,
     installments: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
   }).isRequired,
+  setRemoveModal: PropTypes.func.isRequired,
 };
 
 export default CustomerCard;
