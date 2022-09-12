@@ -9,13 +9,13 @@
 <h1>Desenvolvimento</h1>
 <p>Para desenvolver esse site, foram utilizadas as seguintes tecnologias:</p>
 <ul>
-  <li>React</li>
-  <li>React-Testing-Library</li>
-  <li>Axios</li>
-  <li>React-Device-Detect</li>
-  <li>React-Router-Dom</li>
-  <li>Styled-Components</li>
-  <li>ESLint</li>
+  <li><a href="https://pt-br.reactjs.org/" target="_blank">React</a></li>
+  <li><a href="https://testing-library.com/docs/react-testing-library/intro/" target="_blank">React-Testing-Library</a></li>
+  <li><a href="https://axios-http.com/ptbr/" target="_blank">Axios</a></li>
+  <li><a href="https://www.npmjs.com/package/react-device-detect" target="_blank">React-Device-Detect</a></li>
+  <li><a href="https://v5.reactrouter.com/web/guides/quick-start" target="_blank">React-Router-Dom</a></li>
+  <li><a href="https://styled-components.com/" target="_blank">Styled-Components</a></li>
+  <li><a href="https://eslint.org/" target="_blank">ESLint</a></li>
 </ul>
 
 <h1>Testes</h1>
