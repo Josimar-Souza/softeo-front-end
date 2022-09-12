@@ -30,15 +30,9 @@ const TableHeader = styled.th`
   width: 20%;
 `;
 
-const TableBody = styled.tbody`
-  display: flex;
-  flex-direction: column;
-`;
-
 export default {
   MainPageSection,
   ClientsTable,
   TableHeaderRow,
   TableHeader,
-  TableBody,
 };
