@@ -65,6 +65,8 @@ function DateFilter({ customers }) {
     backgroundColor: 'white',
     margin: '0 10px',
     fontSize: '2vw',
+    phoneFontSize: '5vw',
+    phoneWidth: '50%',
     width: '15%',
     onClick: onFilterButtonClick,
   };

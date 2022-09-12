@@ -65,6 +65,7 @@ function MainPage() {
     onClick: onAddCustomerClick,
     fontSize: '1.5vw',
     margin: '5rem 0 2rem 0',
+    phoneFontSize: '5vw',
   };
 
   if (customers.length === 0) {
