@@ -13,6 +13,10 @@ const HeaderStyle = styled.div`
 const PageTitle = styled.h1`
   color: #607196;
   font-size: 3vw;
+
+  @media (max-width: 540px) {
+    font-size: 8vw;
+  }
 `;
 
 const BackButtonImg = styled.img`

@@ -32,6 +32,7 @@ function MainPage() {
     ClientsTable,
     TableHeaderRow,
     TableHeader,
+    TableBody,
   } = mainPageStyles;
 
   const refreshPage = () => {
@@ -87,7 +88,7 @@ function MainPage() {
         Adicionar cliente
       </Button>
       <ClientsTable>
-        <tbody>
+        <TableBody>
           <TableHeaderRow>
             <TableHeader>Nome</TableHeader>
             <TableHeader>Email</TableHeader>
@@ -105,7 +106,7 @@ function MainPage() {
               />
             ))
           }
-        </tbody>
+        </TableBody>
       </ClientsTable>
     </MainPageSection>
   );

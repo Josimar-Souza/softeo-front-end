@@ -8,6 +8,11 @@ const InputStyle = styled.input`
   font-size: ${({ fontSize }) => fontSize};
   padding: 10px;
   width: ${({ width }) => width};
+
+  @media (max-width: 540px) {
+    width: 80%;
+    font-size: 5vw;
+  }
 `;
 
 const styles = {

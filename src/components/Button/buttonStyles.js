@@ -23,7 +23,9 @@ const ButtonStyle = styled.button`
   }
 
   @media (max-width: 540px) {
-    width: 15%;
+    width: 35%;
+    font-size: 4vw;
+    margin: 15px 0;
   }
 `;
 
