@@ -24,12 +24,20 @@ const CustomerInfoSection = styled.div`
 const CustomerName = styled.h1`
   font-size: 3vw;
   text-align: center;
+
+  @media (max-width: 540px) {
+    font-size: 8vw;
+  }
 `;
 
 const CustomerInfo = styled.p`
   font-size: 1.5vw;
   margin: 2rem 0;
   text-align: center;
+
+  @media (max-width: 540px) {
+    font-size: 5vw;
+  }
 `;
 
 const InstalmmentsContainer = styled.ol``;
