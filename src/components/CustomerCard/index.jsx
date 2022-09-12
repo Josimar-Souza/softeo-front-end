@@ -1,11 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useNavigate } from 'react-router-dom';
 import styles from './customerCardStyles';
 import phoneNumberFormatter from '../../helpers/phoneNumberFormatter';
 import getCurrencyFormat from '../../helpers/getCurrencyFormat';
 import Button from '../Button';
 
 function CustomerCard({ customer, setRemoveModal }) {
+  const navigate = useNavigate();
   const {
     CardStyle,
     CustomerName,
@@ -17,6 +19,10 @@ function CustomerCard({ customer, setRemoveModal }) {
     const total = installments.reduce((acc, curr) => acc + curr.value, 0);
 
     return getCurrencyFormat(total, 'pt-BR', 'currency', 'BRL');
+  };
+
+  const onDetailsButtonClick = () => {
+    navigate(`/${customer._id}`);
   };
 
   const removeButtonConfig = {
@@ -32,6 +38,7 @@ function CustomerCard({ customer, setRemoveModal }) {
     fontColor: 'black',
     phoneFontSize: '4.5vw',
     phoneWidth: '40%',
+    onClick: onDetailsButtonClick,
   };
 
   return (
@@ -62,6 +69,7 @@ CustomerCard.propTypes = {
     email: PropTypes.string.isRequired,
     phone: PropTypes.string.isRequired,
     installments: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
+    _id: PropTypes.string.isRequired,
   }).isRequired,
   setRemoveModal: PropTypes.func.isRequired,
 };

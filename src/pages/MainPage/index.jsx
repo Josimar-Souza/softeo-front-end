@@ -77,6 +77,7 @@ function MainPage() {
           {
             customers.map((customer) => (
               <CustomerCard
+                key={customer._id}
                 customer={customer}
                 setRemoveModal={setRemoveModal}
               />
