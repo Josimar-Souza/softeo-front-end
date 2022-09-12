@@ -138,6 +138,8 @@ function AddCustomerPage() {
     fontSize: '2vw',
     margin: '3rem 0 0 0',
     onClick: onAddButtonClick,
+    phoneWidth: '80%',
+    phoneFontSize: '6vw',
   };
 
   const getFormFeedback = () => {
@@ -160,6 +162,7 @@ function AddCustomerPage() {
         pageTitle="Adicionar novo cliente"
         backButton
         backUrl="/"
+        phoneFontSize="6vw"
       />
       <AddCustomerForm>
         <FormSection>

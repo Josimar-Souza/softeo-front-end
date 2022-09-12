@@ -78,6 +78,7 @@ function MainPage() {
       { getRemoveModal() }
       <Header
         pageTitle="Clientes"
+        phoneFontSize="10vw"
       />
       <DateFilter
         customers={customers}

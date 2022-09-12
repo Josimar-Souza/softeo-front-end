@@ -15,7 +15,7 @@ const PageTitle = styled.h1`
   font-size: 3vw;
 
   @media (max-width: 540px) {
-    font-size: 8vw;
+    font-size: ${({ phoneFontSize }) => phoneFontSize};
   }
 `;
 

@@ -5,7 +5,13 @@ import headerStyles from './headerStyle';
 import Button from '../Button';
 import backButtonIcon from '../../icons/arrow-left-circle.svg';
 
-function Header({ pageTitle, backButton, backUrl }) {
+function Header(props) {
+  const {
+    backUrl,
+    backButton,
+    pageTitle,
+    phoneFontSize,
+  } = props;
   const { HeaderStyle, PageTitle, BackButtonImg } = headerStyles;
   const navigate = useNavigate();
 
@@ -18,6 +24,7 @@ function Header({ pageTitle, backButton, backUrl }) {
     width: '6%',
     backgroundColor: 'rgba(0, 0, 0, 0)',
     testId: 'header-back-button',
+    phoneWidth: '16%',
   };
 
   const getBackButton = () => {
@@ -48,7 +55,11 @@ function Header({ pageTitle, backButton, backUrl }) {
   return (
     <HeaderStyle justifyContent={getFlexSpacing()}>
       { getBackButton() }
-      <PageTitle>{ pageTitle }</PageTitle>
+      <PageTitle
+        phoneFontSize={phoneFontSize}
+      >
+        { pageTitle }
+      </PageTitle>
       { getInvisibleItem() }
     </HeaderStyle>
   );
@@ -57,12 +68,14 @@ function Header({ pageTitle, backButton, backUrl }) {
 Header.defaultProps = {
   backButton: false,
   backUrl: '',
+  phoneFontSize: '5vw',
 };
 
 Header.propTypes = {
   pageTitle: PropTypes.string.isRequired,
   backButton: PropTypes.bool,
   backUrl: PropTypes.string,
+  phoneFontSize: PropTypes.string,
 };
 
 export default Header;

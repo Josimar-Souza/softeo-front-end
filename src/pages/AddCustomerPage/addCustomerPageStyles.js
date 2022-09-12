@@ -36,6 +36,10 @@ const FormSection = styled.div`
 const FormSectionTitle = styled.h1`
   font-size: 2.5vw;
   margin-bottom: 10px;
+
+  @media (max-width: 540px) {
+    font-size: 5vw;
+  }
 `;
 
 const FormFeedback = styled.p`
