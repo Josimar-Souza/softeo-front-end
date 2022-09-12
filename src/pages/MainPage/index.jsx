@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { isMobile } from 'react-device-detect';
 import CustomersAPI from '../../api/customersAPI';
 import mainPageStyles from './mainPageStyles';
 import Header from '../../components/Header';
@@ -8,6 +9,7 @@ import RemoveModal from '../../components/RemoveModal';
 import Button from '../../components/Button';
 import Loading from '../../components/Loading';
 import DateFilter from '../../components/DateFilter';
+import CustomerCard from '../../components/CustomerCard';
 
 const { REACT_APP_API_URL } = process.env;
 export const customersAPI = new CustomersAPI(REACT_APP_API_URL, 10000);
@@ -32,6 +34,7 @@ function MainPage() {
     ClientsTable,
     TableHeaderRow,
     TableHeader,
+    PhoneClientsSection,
   } = mainPageStyles;
 
   const refreshPage = () => {
@@ -67,27 +70,20 @@ function MainPage() {
     phoneFontSize: '5vw',
   };
 
-  if (customers.length === 0) {
-    return (
-      <Loading />
-    );
-  }
+  const getCustomersTable = () => {
+    if (isMobile) {
+      return (
+        <PhoneClientsSection>
+          {
+            customers.map((customer) => (
+              <CustomerCard customer={customer} />
+            ))
+          }
+        </PhoneClientsSection>
+      );
+    }
 
-  return (
-    <MainPageSection>
-      { getRemoveModal() }
-      <Header
-        pageTitle="Clientes"
-        phoneFontSize="10vw"
-      />
-      <DateFilter
-        customers={customers}
-      />
-      <Button
-        config={addCustomerButtonConfig}
-      >
-        Adicionar cliente
-      </Button>
+    return (
       <ClientsTable>
         <tbody>
           <TableHeaderRow>
@@ -109,6 +105,31 @@ function MainPage() {
           }
         </tbody>
       </ClientsTable>
+    );
+  };
+
+  if (customers.length === 0) {
+    return (
+      <Loading />
+    );
+  }
+
+  return (
+    <MainPageSection>
+      { getRemoveModal() }
+      <Header
+        pageTitle="Clientes"
+        phoneFontSize="10vw"
+      />
+      <DateFilter
+        customers={customers}
+      />
+      <Button
+        config={addCustomerButtonConfig}
+      >
+        Adicionar cliente
+      </Button>
+      { getCustomersTable() }
     </MainPageSection>
   );
 }

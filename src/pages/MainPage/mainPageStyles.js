@@ -30,9 +30,12 @@ const TableHeader = styled.th`
   width: 20%;
 `;
 
+const PhoneClientsSection = styled.div``;
+
 export default {
   MainPageSection,
   ClientsTable,
   TableHeaderRow,
   TableHeader,
+  PhoneClientsSection,
 };
